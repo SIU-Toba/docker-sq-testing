@@ -15,7 +15,9 @@ RUN printf "error_reporting = E_ALL\n" >> /usr/local/etc/php/php.ini
 RUN printf "display_errors=On\n" >> /usr/local/etc/php/php.ini
 RUN printf "output_buffering=4096\n" >> /usr/local/etc/php/php.ini
 
-#--------------------------------------------- GIT y SVN -----------------------------------------
+#--------------------------------------------- GIT, SVN y Composer -----------------------------------------
 RUN apt-get install -y git-core
 RUN apt-get install -y subversion
+RUN curl -sS https://getcomposer.org/installer | php \
+&& mv composer.phar /usr/local/bin/composer
 
