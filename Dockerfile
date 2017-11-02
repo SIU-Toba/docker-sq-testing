@@ -21,11 +21,7 @@ RUN apt-get install -y subversion
 RUN curl -sS https://getcomposer.org/installer | php \
 && mv composer.phar /usr/local/bin/composer
 
+RUN ln -s /var/local/sanaviron-quilmes/config/alias.conf /etc/apache2/sites-enabled/alias.conf;
 
-COPY entrypoint.sh /
-RUN chmod +x /entrypoint.sh
-RUN mkdir /entrypoint.d
 
-ENTRYPOINT [ "/entrypoint.sh" ]
-CMD ["apache2-foreground"]
 
